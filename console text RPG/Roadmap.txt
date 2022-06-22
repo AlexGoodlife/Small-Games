@@ -1,0 +1,13 @@
+Location system // DONE
+Player initialization // DONE
+Item system // DONE 
+Inventory system // DONE
+Purse system // DONE 
+Passage system // DONE 
+npcs // DONE
+Combat // DONE
+Dialogue // TODO 
+Quests // DONE ISH
+Events // TODO
+Shop , town // TODO
+Narrative // TODO 
