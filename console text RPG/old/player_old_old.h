@@ -26,8 +26,6 @@ typedef struct{
     int inventoy_size;
     Entity *purse[100];
     int purse_size;
-    Quest *questlog[100];
-    int n_quests;
 }Player;
 
 
@@ -41,18 +39,6 @@ extern void drop_item(const char *subject, Player *player);
 extern void command_use(const char*subject, Player *player);
 extern void show_purse(Player *player);
 extern void show_status(Player *player);
-extern void give_money(Player *player, NPC *giver);
-extern void add_loot_to_location(Location *location, Entity **a, int n);
-extern void check_npc_quest(Quest **a, int n, NPC *x, Player *player);
-extern NPC *npc_from_subject(const char*subject);
-extern NPC npcs[];
-extern Quest quests[];
-#define Orc (npcs + 0)
-#define Old_man (npcs + 1)
-#define end_npc (npcs + 2)
-
-#define Orc_kill (quests + 0)
-#define end_quests (quests +1)
 
 
 #endif
