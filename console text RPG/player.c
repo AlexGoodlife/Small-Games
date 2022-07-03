@@ -4,9 +4,6 @@
 #include <string.h>
 #include <assert.h>
 
-
-#include "entity.h"
-#include "npc.h"
 #include "player.h"
 
 int MAX_INVENTORY_SIZE = 20;
@@ -290,50 +287,15 @@ void give_item(Player *player, Entity *x){
     }
 }
 
-// First quest start
-int orc_kill_complete(Player *player){
-    // printf("%d\n", is_in_inventory_literal(Club, player));
-    return is_in_inventory_literal(Club, player);
-}
-
-void orc_kill_quest_start(){
-    printf("\n [old man] : Hey I would leave here but that orc over in the [field] is really causing me trouble can you deal with him? You gotta show me his club too\n");
-    printf("\n QUEST ISSUED: \n Kill the [orc] in the [field] and come back \n");
-}
-
-void orc_kill_reward(){
-    printf("\n [old man] : Thanks for getting rid of the orc, but I'm actually quite confortable here \n");
-}
-
-// First quest end
-
-Quest quests[] = {{"Big green baddie", "Kill the orc in the field", &orc_kill_quest_start, &orc_kill_complete, &orc_kill_reward}};
-
-#define n_questss (sizeof quests / sizeof *quests)
-
-
-NPC npcs[]= {{"orc", " A big green orc, doesn't seem too friendly", 20, 20, Club, Loin_cloth, {Potion, Club}, 2, {Coin, Coin, Coin, Coin}, 4, {"Oy get out of 'ere human", "I don't talk to no humies", "WAAAAGH"}, 3, 0, {"Puny human.... beat me", "WAAAGH WHAT SHAME *fucking dies*"}, 2,NULL},
-{"old man", " A weird looking old man", 20, 20, Rusty_sword, Leather_armour, {Potion}, 1, {Coin, Coin, Coin, Coin}, 4, {"Hey, was the cemetery confy?", "Don't mind me just a friendly old man"}, 1, 0, {"Welp, guess this is the end"}, 1, Orc_kill}};
-
-#define n_npcs (sizeof npcs / sizeof *npcs)
-
 void check_npc_quest(Quest **a, int n, NPC *x, Player *player){
     for(int i = 0; i < n; i++){
         if(a[i] == x->quest){
-            if(a[i]->completion_condition(player)){
+            if(a[i]->completion_condition()){
                 printf("\n QUEST COMPLETE \n");
                 a[i]->rewards();
                 player->n_quests = remove_quests(player->questlog, player->n_quests, x->quest);
             }
         }
     }
-}
-
-NPC *npc_from_subject(const char*subject){
-    for(int i=0; i < n_npcs;i++){
-        if(strcmp(subject, npcs[i].name)==0)
-            return &npcs[i];
-    }
-    return NULL;   
 }
 

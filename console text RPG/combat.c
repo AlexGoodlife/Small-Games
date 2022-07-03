@@ -4,6 +4,7 @@
 
 #include "entity.h"
 #include "npc.h"
+#include "location.h"
 #include "player.h"
 #include "combat.h"
 

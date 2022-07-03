@@ -8,9 +8,10 @@
 #include <time.h>
 #include "entity.h"
 #include "npc.h"
-#include "player.h"
 #include "location.h"
+#include "player.h"
 #include "combat.h"
+#include "commands.h"
 
 #define MAX_INPUT 128
 const char* author = "Alexandre Boavida 68781";
@@ -34,7 +35,7 @@ int game_loop(Player *player, char *input){
     if(strcmp(command, "quit") == 0)
         return 0;
     else if(strcmp(command, "look") == 0){
-        command_look(subject, player);
+        command_look(subject, player->location);
         return 1;
     }
      else if(strcmp(command, "go") == 0){

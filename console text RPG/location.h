@@ -4,15 +4,26 @@
 #ifndef location_h
 #define location_h
 
-extern void command_look(const char * subject, Player *player);
-extern void command_go(const char *subject, Player *player);
-extern void command_talk(const char * subject, Player *player);
-extern int command_fight(const char * subject, Player *player);
-extern void check_questlog(Player *player);
+#include "entity.h"
+#include "npc.h"
+
+typedef struct loc{
+    const char *name;
+    const char *description;
+    Entity *l_entities[50];
+    int n_entities;
+    struct loc *destinations[5];
+    int n_destinations;
+    NPC *actors[10];
+    int n_actors;
+}Location;
+
+
+
 extern void tutorial_event(void);
-extern void help_command(void);
+extern Location *location_from_subject(const char *subject);
+extern int is_destinations(Location *current, Location *destination);
 extern Location locations[];
-extern Quest quests[];
 
 
 #define cemetery (locations + 0)
