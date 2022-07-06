@@ -37,9 +37,9 @@ const char* setup(){
     return to_guess;
 }
 
-bool is_present(const char *s, char x){
+bool is_present(const char *s, char x, int* identifiers){
     for(int i = 0; s[i];i++)
-        if(s[i] == x)
+        if(s[i] == x && identifiers[i] != 2)
             return true;
     return false;
 }
@@ -67,13 +67,13 @@ bool game_loop(const char* to_guess){
         return game_loop(to_guess);
     }
     int *identifiers = (int*)calloc(5, sizeof(int));
-    for(int i = 0; input[i];i++){
-        if(input[i] == to_guess[i]){
+    for(int i = 0; input[i];i++)
+        if(input[i] == to_guess[i])
             identifiers[i] = 2;
-        }
-        else if(is_present(to_guess,input[i]))
+    for(int i = 0; input[i];i++){
+        if(identifiers[i] != 2 &&is_present(to_guess,input[i], identifiers))
             identifiers[i] = 1;
-        else
+        else if(identifiers[i] != 2)
             identifiers[i] = 0;
     }
     print_guess(input, identifiers);
@@ -85,10 +85,10 @@ bool game_loop(const char* to_guess){
 void game(){
     printf("\033[1;35mWelcome to Wordle, you have 6 guesses\n GOOD LUCK\033[0m\n");
     const char *to_guess = setup();
-    printf("WORD %s\n", to_guess);
-    int tries = 0;
+    int tries = 1;
+    printf("TRY NUMBER: %d\n", tries);
     while(game_loop(to_guess) && tries < 6){
-        printf("TRY NUMBER: %d\n", tries);
+        printf("TRY NUMBER: %d\n", tries+1);
         tries++;
     }
     if(tries < 6)
