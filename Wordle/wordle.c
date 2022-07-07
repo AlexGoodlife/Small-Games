@@ -8,7 +8,6 @@
 #define WORDS_SIZE 4267
 
 
-//TODO TO LOWER CASE
 
 int random_number(int lower, int upper){
     return (rand() % (upper-lower+1)) + lower;
