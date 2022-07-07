@@ -7,7 +7,7 @@
 
 #define WORDS_SIZE 4267
 
-
+bool won = false;
 
 int random_number(int lower, int upper){
     return (rand() % (upper-lower+1)) + lower;
@@ -24,14 +24,6 @@ char* to_lower_case(char *s){
     }
     r[result] = '\0';
     return r;
-}
-
-bool is_equal(const char *s, char *r){
-    for(int i = 0; s[i];i++){
-        if(s[i] != r[i])
-            return false;
-    }
-    return true;
 }
 
 int readwords(FILE *f,  char **a){
@@ -92,27 +84,30 @@ bool game_loop(const char* to_guess){
             identifiers[i] = 0;
     }
     print_guess(input, identifiers);
-    if(is_equal(to_guess, input))
+    if(strcmp(to_guess, input) == 0){
+        won = true;
         return false;
+    }
     return true;
 }
 
 void game(){
     printf("\033[1;35mWelcome to Wordle, you have 6 guesses\n GOOD LUCK\033[0m\n");
     const char *to_guess = setup();
-    int tries = 1;
-    printf("TRY NUMBER: %d\n", tries);
-    while(game_loop(to_guess) && tries < 6){
-        printf("TRY NUMBER: %d\n", tries+1);
+    int tries = 0;
+    printf("TRY NUMBER: %d\n", tries+1);
+    while(game_loop(to_guess) && tries < 5){
         tries++;
+        printf("TRY NUMBER: %d\n", tries+1);
     }
-    if(tries < 6)
+    if(won)
         printf("\033[1;32mCongratulations you got it right! Press r to play again\033[0m\n");
     else
         printf("\033[1;31mGame over! Word was \033[1;37m%s\033[0m\n Press r to play again\n", to_guess);
     char c = getch();
     if(c == 'r'){
         system("cls");
+        won = false;
         game();
     }
 }
