@@ -96,8 +96,10 @@ void game(){
     else
         printf("\033[1;31mGame over! Word was \033[1;37m%s\033[0m\n Press r to play again\n", to_guess);
     char c = getch();
-    if(c == 'r')
+    if(c == 'r'){
+        system("cls");
         game();
+    }
 }
 
 
