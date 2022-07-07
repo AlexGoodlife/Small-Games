@@ -8,8 +8,23 @@
 #define WORDS_SIZE 4267
 
 
+//TODO TO LOWER CASE
+
 int random_number(int lower, int upper){
     return (rand() % (upper-lower+1)) + lower;
+}
+
+char* to_lower_case(char *s){
+    char *r = (char*)malloc(sizeof(char)*strlen(s)+1);
+    int result = 0;
+    for(int i = 0;s[i];i++){
+        if(s[i] >= 65 && s[i] <= 90)
+            r[result++] = s[i] + 32;
+        else
+            r[result++] = s[i];
+    }
+    r[result] = '\0';
+    return r;
 }
 
 bool is_equal(const char *s, char *r){
@@ -60,8 +75,9 @@ void print_guess(char*s, int* identifiers){
 }
 
 bool game_loop(const char* to_guess){
-    char input[8];
-    scanf("%s", input);
+    char input_[8];
+    scanf("%s", input_);
+    char* input = to_lower_case(input_);
     if(strlen(input) != 5){
         printf("\033[0;31mGuess must be 5 letters long!!\033[0m\n");
         return game_loop(to_guess);
