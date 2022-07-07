@@ -9,6 +9,8 @@
 
 bool won = false;
 
+char *colors[] = {"\033[0;31m", "\033[0;33m", "\033[0;32m"}; // indexes 0 is red, 1 is yellow, 2 is green
+
 int random_number(int lower, int upper){
     return (rand() % (upper-lower+1)) + lower;
 }
@@ -52,15 +54,8 @@ bool is_present(const char *s, char x, int* identifiers){
 
 void print_guess(char*s, int* identifiers){
     for(int i = 0; s[i];i++){
-        if(identifiers[i] == 2){
-            printf("\033[0;32m%c \033[0m", s[i]);
-        }
-        else if(identifiers[i] == 1){
-            printf("\033[0;33m%c \033[0m", s[i]);
-        }
-        else{
-            printf("\033[0;31m%c \033[0m", s[i]);
-        }
+       printf("%s", colors[identifiers[i]]);
+       printf("%c \033[0m", s[i]);
     }
     printf("\n");
 }
@@ -84,6 +79,7 @@ bool game_loop(const char* to_guess){
             identifiers[i] = 0;
     }
     print_guess(input, identifiers);
+    free(identifiers);
     if(strcmp(to_guess, input) == 0){
         won = true;
         return false;
