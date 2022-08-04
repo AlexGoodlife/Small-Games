@@ -4,7 +4,7 @@
 #include <string.h>
 #include <assert.h>
 
-#include "player.h"
+#include  "../include/player.h"
 
 int MAX_INVENTORY_SIZE = 20;
 int MAX_PURSE_SIZE = 100;

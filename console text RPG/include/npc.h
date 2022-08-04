@@ -36,17 +36,17 @@ typedef struct{
 #include "location.h"
 //#include "player.h"
 
-// extern NPC npcs[];
-// extern NPC *npc_from_subject(const char*subject);
-extern int is_npc_inloc(NPC *x, NPC **a, int n);
-extern void look_NPC(NPC *a);
-extern void talk_to(NPC *a);
-extern int find_npc(NPC **a, int n, NPC *x);
-extern int remove_npc(NPC **a, int n, NPC *x);
-extern void look_NPC_combat(NPC *a);
-extern int find_quest(Quest **a, int n, Quest *x);
-extern int remove_quests(Quest **a, int n, Quest*x);
-extern NPC *npc_from_subject(const char*subject);
+//  NPC npcs[];
+//  NPC *npc_from_subject(const char*subject);
+int is_npc_inloc(NPC *x, NPC **a, int n);
+void look_NPC(NPC *a);
+void talk_to(NPC *a);
+int find_npc(NPC **a, int n, NPC *x);
+int remove_npc(NPC **a, int n, NPC *x);
+void look_NPC_combat(NPC *a);
+int find_quest(Quest **a, int n, Quest *x);
+int remove_quests(Quest **a, int n, Quest*x);
+NPC *npc_from_subject(const char*subject);
 extern NPC npcs[];
 #define Orc (npcs + 0)
 #define Old_man (npcs + 1)

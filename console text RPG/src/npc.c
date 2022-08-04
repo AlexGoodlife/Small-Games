@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "npc.h"
+#include "../include/npc.h"
 
 NPC npcs[]= {{"orc", " A big green orc, doesn't seem too friendly", 20, 20, Club, Loin_cloth, {Potion, Club}, 2, {Coin, Coin, Coin, Coin}, 4, {"Oy get out of 'ere human", "I don't talk to no humies", "WAAAAGH"}, 3, 0, {"Puny human.... beat me", "WAAAGH WHAT SHAME *fucking dies*"}, 2,NULL},
 {"old man", " A weird looking old man", 20, 20, Rusty_sword, Leather_armour, {Potion}, 1, {Coin, Coin, Coin, Coin}, 4, {"Hey, was the cemetery confy?", "Don't mind me just a friendly old man"}, 1, 0, {"Welp, guess this is the end"}, 1, Orc_kill}};
@@ -93,25 +93,25 @@ NPC *npc_from_subject(const char*subject){
     return NULL;   
 }
 
-// First quest start
-int orc_kill_complete(){
-    // printf("%d\n", is_in_inventory_literal(Club, player));
-    return Orc->hp<= 0;
-}
+// // First quest start
+// int orc_kill_complete(){
+//     // printf("%d\n", is_in_inventory_literal(Club, player));
+//     return Orc->hp<= 0;
+// }
 
-void orc_kill_quest_start(){
-    printf("\n [old man] : Hey I would leave here but that orc over in the [field] is really causing me trouble can you deal with him? You gotta show me his club too\n");
-    printf("\n QUEST ISSUED: \n Kill the [orc] in the [field] and come back \n");
-}
+// void orc_kill_quest_start(){
+//     printf("\n [old man] : Hey I would leave here but that orc over in the [field] is really causing me trouble can you deal with him? You gotta show me his club too\n");
+//     printf("\n QUEST ISSUED: \n Kill the [orc] in the [field] and come back \n");
+// }
 
-void orc_kill_reward(){
-    printf("\n [old man] : Thanks for getting rid of the orc, but I'm actually quite confortable here \n");
-}
+// void orc_kill_reward(){
+//     printf("\n [old man] : Thanks for getting rid of the orc, but I'm actually quite confortable here \n");
+// }
 
-// First quest end
+// // First quest end
 
-Quest quests[] = {{"Big green baddie", "Kill the orc in the field", &orc_kill_quest_start, &orc_kill_complete, &orc_kill_reward}};
+// Quest quests[] = {{"Big green baddie", "Kill the orc in the field", &orc_kill_quest_start, &orc_kill_complete, &orc_kill_reward}};
 
-#define n_questss (sizeof quests / sizeof *quests)
+// #define n_questss (sizeof quests / sizeof *quests)
 
 

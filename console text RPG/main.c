@@ -6,12 +6,13 @@
 #include <string.h>
 #include <assert.h>
 #include <time.h>
-#include "entity.h"
-#include "npc.h"
-#include "location.h"
-#include "player.h"
-#include "combat.h"
-#include "commands.h"
+
+// #include "include/entity.h"
+// #include "include/npc.h"
+// #include "include/location.h"
+// #include "include/player.h"
+// #include "include/combat.h"
+#include "include/commands.h"
 
 #define MAX_INPUT 128
 const char* author = "Alexandre Boavida 68781";

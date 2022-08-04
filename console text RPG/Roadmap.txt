@@ -1,3 +1,5 @@
+INCOMPLETE
+
 Location system // DONE
 Player initialization // DONE
 Item system // DONE 
@@ -5,9 +7,9 @@ Inventory system // DONE
 Purse system // DONE 
 Passage system // DONE 
 npcs // DONE
-Combat // DONE
+Combat // REMODEL
 Dialogue // TODO 
-Quests // DONE ISH
+Quests // EH
 Events // TODO
 Shop , town // TODO
 Narrative // TODO 

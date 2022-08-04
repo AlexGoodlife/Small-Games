@@ -20,9 +20,9 @@ typedef struct loc{
 
 
 
-extern void tutorial_event(void);
-extern Location *location_from_subject(const char *subject);
-extern int is_destinations(Location *current, Location *destination);
+void tutorial_event(void);
+Location *location_from_subject(const char *subject);
+int is_destinations(Location *current, Location *destination);
 extern Location locations[];
 
 

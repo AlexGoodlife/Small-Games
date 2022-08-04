@@ -13,13 +13,13 @@ typedef struct{
 }Entity;
 
 
-extern int MAX_LOC_ENTITIES;
-extern void command_inspect(const char * subject);
-extern int remove_entities(Entity **a, int n, Entity *x);
-extern int index_of_entity(const char* subject);
-extern int print_unique_items(Entity **a,int n);
+int MAX_LOC_ENTITIES;
+void command_inspect(const char * subject);
+int remove_entities(Entity **a, int n, Entity *x);
+int index_of_entity(const char* subject);
+int print_unique_items(Entity **a,int n);
 extern Entity entities[];
-extern int rand_to(int n);
+int rand_to(int n);
 
 #define Fists (entities + 0)
 #define Loin_cloth (entities + 1)

@@ -4,7 +4,7 @@
 #include <string.h>
 #include <assert.h>
 
-#include "location.h"
+#include "../include/location.h"
 
 Location locations[] = {{"cemetery", " You are in a cemetery, surrounded by ash, from a narrow passage you see a [field]", {}, 0, {field}, 1, {Old_man}, 1}, 
 {"field", " Through the passage you emerge onto a small plain, behind you is the [cemetery], ahead the [forest]",{Potion, Rusty_sword, Leather_armour}, 3, {cemetery, forest}, 2, {Orc}, 1},

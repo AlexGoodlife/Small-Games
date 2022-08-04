@@ -6,12 +6,9 @@
 #include <string.h>
 #include <assert.h>
 #include <time.h>
-#include "entity.h"
-#include "npc.h"
-#include "location.h"
-#include "player.h"
-#include "combat.h"
-#include "commands.h"
+
+#include "../include/commands.h" 
+
 
 void issue_quests(Player *player, NPC *x){
     if(x->quest != NULL){

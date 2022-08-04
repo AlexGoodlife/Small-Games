@@ -4,7 +4,7 @@
 #include <string.h>
 #include <assert.h>
 
-#include "entity.h"
+#include "../include/entity.h"
 
 
 int MAX_LOC_ENTITIES = 20;

@@ -5,7 +5,7 @@
 #include <assert.h>
 
 
-#include "quests.h"
+#include  "../include/quests.h"
 
 
 

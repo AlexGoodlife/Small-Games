@@ -2,11 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "entity.h"
-#include "npc.h"
-#include "location.h"
-#include "player.h"
-#include "combat.h"
+
+#include "../include/combat.h"
 
 static char combat_input[100] = " ";
 
