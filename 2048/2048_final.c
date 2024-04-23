@@ -5,7 +5,6 @@
 #include <assert.h>
 #include <time.h>
 #include <conio.h>
-const char* author = "Alexandre Boavida 68781";
 
 #define BOARD_SIZE 4
 
